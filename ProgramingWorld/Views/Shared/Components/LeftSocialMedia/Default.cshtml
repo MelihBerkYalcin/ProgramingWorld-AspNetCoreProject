@@ -1,0 +1,11 @@
+﻿@using EntityLayer.Concrete
+@model List<SocialMedia>
+
+<h2 class="widget-title">Sosyal Medyalarımız</h2>
+<a href="@Model.FirstOrDefault().Facebook"><img src="~/Images/SocialMedia/Facebook.png" alt="Facebook" class="img-fluid float-none" data-toggle="tooltip" data-placement="bottom" title="Facebook" style="margin-bottom:10px; width:230px;"></a>
+<br />
+<a href="@Model.FirstOrDefault().Youtube"><img src="~/Images/SocialMedia/Youtube.png" alt="Youtube" class="img-fluid float-none" data-toggle="tooltip" data-placement="bottom" title="Youtube" style="margin-bottom:10px; width:230px;"></a>
+<br />
+<a href="@Model.FirstOrDefault().Instagram"><img src="~/Images/SocialMedia/Instagram.png" alt="Instagram" class="img-fluid float-none" data-toggle="tooltip" data-placement="bottom" title="Instagram" style="margin-bottom:10px; width:230px;"></a>
+<br />
+<br /><br />

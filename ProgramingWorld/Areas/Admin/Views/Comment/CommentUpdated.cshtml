@@ -1,0 +1,46 @@
+﻿@model List<EntityLayer.Concrete.Comment>
+
+@{
+    ViewData["Title"] = "CommentUpdated";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="ibox ">
+            <div class="ibox-title">
+                <h5>Yorum Düzenle</h5>
+            </div>
+            <div class="ibox-content">
+                <form action="CommentUpdated" method="post">
+                    @Html.TextBoxFor(I => I.FirstOrDefault().CommentID, new { hidden = "true" })
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Yorum Yapılan Blog Adı</label>
+                        <div class="col-sm-10">@Html.DropDownListFor(I => I.FirstOrDefault().BlogID, (List<SelectListItem>)ViewBag.Liste, new { @class = "form-control", disabled = "true" })</div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Yorum Yapanın Kullanıcı Adı</label>
+                        <div class="col-sm-10">@Html.TextBoxFor(I => I.FirstOrDefault().CommentUserName, new { @class = "form-control" })</div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Verdiği Blog Puanı</label>
+                        <div class="col-sm-10">@Html.TextBoxFor(I => I.FirstOrDefault().BlogScore, new { @class = "form-control" })</div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Yorum Yapanın Yorumu</label>
+                        <div class="col-sm-10">@Html.TextAreaFor(I => I.FirstOrDefault().CommentContent, 10, 3, new { @class = "form-control" })</div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group row">
+                        <div class="col-sm-4 col-sm-offset-2">
+                            <a href="~/Admin/Comment/CommentAll/" class="btn btn-white btn-sm" type="submit">İptal Et</a>
+                            <a href="~/Admin/Comment/CommentDeleted/@Model.FirstOrDefault().CommentID" class="btn btn-danger btn-sm" type="submit">Sil</a>
+                            <button class="btn btn-warning btn-sm" type="submit">Güncelle</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

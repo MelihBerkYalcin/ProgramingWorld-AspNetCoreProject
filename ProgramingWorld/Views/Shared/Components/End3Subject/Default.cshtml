@@ -1,0 +1,29 @@
+﻿@using EntityLayer.Concrete
+@model List<Blog>
+
+<section class="section first-section">
+    <div class="container-fluid">
+        <div class="masonry-blog clearfix">
+            @foreach (var item in Model)
+            {
+                <div class="left-side">
+                    <div class="masonry-box post-media">
+                        <a href="~/Blog/BlogDetails/@item.BlogID/@Url.AdresDuzenle(item.BlogTitle)" title="">
+                            <img src="@item.BlogIMGURL" alt="" class="img-fluid" style="width:800px; height:468px;">
+                        </a>
+                            <div class="shadoweffect">
+                                <div class="shadow-desc">
+                                    <div class="blog-meta">
+                                        <span class="bg-aqua"><a href="~/Blog/BlogCategoryGetList/@item.CategoryID/@Url.AdresDuzenle(item.Category.CategoryName)" title="">@item.Category.CategoryName</a></span>
+                                        <h4><a href="~/Blog/BlogDetails/@item.BlogID/@Url.AdresDuzenle(item.BlogTitle)" title="">@item.BlogTitle</a></h4>
+                                        <small style="color:white">@item.BlogCreateDate.ToString("dd-MMM-yyyy")</small>
+                                        <small><a href="~/Blog/WriterBlogGet/@item.AppUserId/@Url.AdresDuzenle(item.AppUser.UserName)" title="">@item.AppUser.UserName</a></small>
+                                    </div><!-- end meta -->
+                                </div><!-- end shadow-desc -->
+                            </div><!-- end shadow -->
+                    </div><!-- end post-media -->
+                </div><!-- end left-side -->
+            }
+        </div><!-- end masonry -->
+    </div>
+</section>

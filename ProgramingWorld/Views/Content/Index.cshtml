@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_SiteLayout.cshtml";
+}
+
+<section class="section wb">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 offset-lg-1">
+                <div class="page-wrapper">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <h4>Biz Kimiz</h4>
+                            <p>FullProgramDunyasi.Com 2023 Yılında Açılmış Bir Blogdur Ve Bu Blogda Program-Oyun-Sistem'e VB... Alanlara Ait Programlar Yer Almaktadır.</p>
+                        </div>
+
+                        <div class="col-lg-4">
+                            <h4>Nasıl yardımcı oluyoruz?</h4>
+                            <p>Doldurmuş Olduğunuz İletişim Formu Yönetim Ekibimiz Tarafından İncelenmektedir Ve E-Mail Adresiniz Üzerinden Size Geri Dönüş Yapılmaktadır.</p>
+                        </div>
+
+                        <div class="col-lg-4">
+                            <h4>Nasıl Ekibinize Katılabilirim?</h4>
+                            <p>Aşşağıdaki Formu Doldurunuz FullProgramDunyasi.Com Ekibi Sizinle E-Mail Adresiniz Üzerinden İletişime Geçecektir Ve Bir Sınava Tabi Tutacaktır Olumlu Bir Sonuç Aldığınızda Ekibe HOŞGELDİNİZ...</p>
+                        </div>
+                    </div><!-- end row -->
+
+                    <hr class="invis">
+
+                    <div class="row">
+                        <div class="col-lg-8 offset-lg-2">
+                            <form class="form-wrapper" asp-action="Index" asp-controller="Content" method="post">
+                                <input type="text" class="form-control" name="ContactUserName" placeholder="Adınız Soyadınız">
+                                <input type="email" class="form-control" name="ContactMail" placeholder="Email Adresiniz">
+                                <input type="text" class="form-control" name="ContactSubject" placeholder="Konu">
+                                <textarea class="form-control" name="ContactMessage" placeholder="Mesajınızı Giriniz..."></textarea>
+                                <button type="submit" class="btn btn-primary">Gönder<i class="fa fa-envelope-open-o"></i></button>
+                            </form>
+                        </div>
+                    </div>
+                </div><!-- end page-wrapper -->
+            </div><!-- end col -->
+        </div><!-- end row -->
+    </div><!-- end container -->
+</section>

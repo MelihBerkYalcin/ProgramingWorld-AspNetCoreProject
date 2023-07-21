@@ -1,0 +1,50 @@
+﻿@using EntityLayer.Concrete
+@model List<Blog>
+
+@{
+    ViewData["Title"] = "Comment";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+
+<div class="content-wrapper">
+    <div class="page-header">
+        <h3 class="page-title">
+            <span class="page-title-icon bg-info text-white mr-2">
+                <i class="mdi mdi-checkerboard"></i>
+            </span> Yorum Blogları
+        </h3>
+    </div>
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th> Blogunuzun Resmi </th>
+                            <th> Blogunuzun Adı </th>
+                            <th> Blogunuzun Oluşturuldugunuz Tarih </th>
+                            <th> Blogunuzun Kategorisi </th>
+                            <th> Blog'a Ait Yorumu Gör </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td class="py-1">
+                                    <img src="@item.BlogIMGURL" alt="image" />
+                                </td>
+                                <td> @item.BlogTitle </td>
+                                <td> @item.BlogCreateDate.ToString("dd-MMM-yyyy") </td>
+                                <td>
+                                    <label class="badge badge-info">@item.Category.CategoryName</label>
+                                </td>
+                                <td> <a href="~/Writer/CommentAll/@item.BlogID/@(Url.AdresDuzenle(item.BlogTitle))" class="btn-sm btn-info">Blog'a Ait Yorumu Gör</a> </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

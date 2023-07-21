@@ -1,0 +1,31 @@
+﻿<div class="custombox clearfix">
+    <h4 class="small-title">Yorum Yapın</h4>
+    <div class="row">
+        <div class="col-lg-12">
+            <form class="form-wrapper" action="~/Comment/CommentAdded" method="post">
+                <input type="text" class="form-control" name="BlogID" placeholder="@ViewBag.X" value="@ViewBag.X" hidden="hidden">
+                <input type="text" class="form-control" name="CommentUserName" placeholder="Adınız">
+                <input type="text" class="form-control" name="CommentEMail" placeholder="E-Mail Adresiniz">
+                <div id="full-stars-example-two">
+                    <b style="text-align:center; color:darkgrey">Puan Ver : </b>
+                    <div class="rating-group">
+                        <input disabled checked class="rating__input rating__input--none" name="BlogScore" id="rating3-none" value="0" type="radio">
+                        <label title="1 Puan" class="rating__label" for="rating3-1"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
+                        <input class="rating__input" name="BlogScore" id="rating3-1" value="1" type="radio">
+                        <label title="2 Puan" class="rating__label" for="rating3-2"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
+                        <input class="rating__input" name="BlogScore" id="rating3-2" value="2" type="radio">
+                        <label title="3 Puan" class="rating__label" for="rating3-3"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
+                        <input class="rating__input" name="BlogScore" id="rating3-3" value="3" type="radio">
+                        <label title="4 Puan" class="rating__label" for="rating3-4"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
+                        <input class="rating__input" name="BlogScore" id="rating3-4" value="4" type="radio">
+                        <label title="5 Puan" class="rating__label" for="rating3-5"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
+                        <input class="rating__input" name="BlogScore" id="rating3-5" value="5" type="radio">
+                    </div>
+                </div><br />
+
+                <textarea class="form-control" name="CommentContent" placeholder="Yorumunuz"></textarea>
+                <button type="submit" class="btn btn-primary">Yorum Yap</button>
+            </form>
+        </div>
+    </div>
+</div>

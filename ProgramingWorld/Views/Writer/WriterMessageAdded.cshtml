@@ -1,0 +1,43 @@
+﻿@model EntityLayer.Concrete.Message
+
+@{
+    string ReceiverUserName = "";
+}
+
+@{
+    ViewData["Title"] = "WriterMessageAdded";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+
+<div class="content-wrapper">
+    <div class="page-header">
+        <h3 class="page-title">
+            <span class="page-title-icon bg-info text-white mr-2">
+                <i class="mdi mdi-comment"></i>
+            </span> Mesaj Gönder
+        </h3>
+    </div>
+    <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <form class="forms-sample" asp-action="WriterMessageAdded" asp-controller="Writer" method="post">
+                    @Html.TextBoxFor(I => I.MessageID, new { Hidden = "Hidden" })
+                    <div class="form-group">
+                        <label for="exampleInputName1">Alıcının Kullanıcı Adı</label>
+                        <input type="text" class="form-control" asp-for="@(ReceiverUserName)" id="exampleInputUsername2" placeholder="Alıcının Kullanıcı Adı">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail3">Konu</label>
+                        @Html.TextBoxFor(I => I.Subject, new { @class = "form-control", placeholder = "Mesajın Konusu" })
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleTextarea1">Mesajınız</label>
+                        @Html.TextAreaFor(I => I.MessageDetails, 20, 0, new { @class = "form-control", placeholder = "Mesajınızı Giriniz..." })
+                    </div>
+                    <button class="btn-sm btn-info" color:white;">Gönder</button>
+                    <a href="~/Writer/WriterSendBox" class="btn-sm" style="background-color:red; color:white;">İptal Et</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

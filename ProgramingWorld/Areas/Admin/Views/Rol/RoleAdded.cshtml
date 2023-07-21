@@ -1,0 +1,34 @@
+﻿@using ProgramingWorld.Areas.Admin.Models
+@model RoleViewModel
+
+@{
+    ViewData["Title"] = "RoleAdded";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="ibox ">
+            <div class="ibox-title">
+                <h5>Rol Ekle</h5>
+            </div>
+            <div class="ibox-content">
+                <form action="RoleAdded" method="post">
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Rol Adı</label>
+                        <div class="col-sm-10">@Html.TextBoxFor(I => I.Name, new { @class = "form-control" })</div>
+                        @Html.ValidationMessageFor(I => I.Name)
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group row">
+                        <div class="col-sm-4 col-sm-offset-2">
+                            <a href="~/Admin/Rol/RoleAll/" class="btn btn-white btn-sm" type="submit">İptal Et</a>
+                            <button class="btn btn-info btn-sm" type="submit">Oluştur</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

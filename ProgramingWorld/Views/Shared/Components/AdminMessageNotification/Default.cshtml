@@ -1,0 +1,32 @@
+﻿@model List<EntityLayer.Concrete.Message>
+
+<li class="dropdown">
+    <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
+        <i class="fa fa-envelope"></i>  <span class="label label-warning">@ViewBag.MessageCoung</span>
+    </a>
+    <!-- Mesajlar Kısmı -->
+    <ul class="dropdown-menu dropdown-messages">
+        @foreach (var item in Model)
+        {
+            <li>
+                <div class="dropdown-messages-box">
+                    <a class="dropdown-item float-left" href="profile.html">
+                        <img alt="image" class="rounded-circle" src="@item.SenderUser.IMGURL">
+                    </a>
+                    <div class="media-body">
+                        <strong>@item.SenderUser.UserName </strong> Sana Mesaj Gönderdi. <br>
+                        <small class="text-muted">Tarih : @item.MessageDate.ToShortDateString() | Saat : @item.MessageDate.ToShortTimeString()</small>
+                    </div>
+                </div>
+            </li>
+        }
+        <li class="dropdown-divider"></li>
+        <li>
+            <div class="text-center link-block">
+                <a href="mailbox.html" class="dropdown-item">
+                    <i class="fa fa-envelope"></i> <strong>Bütün Gelen Mesajlar</strong>
+                </a>
+            </div>
+        </li>
+    </ul>
+</li>

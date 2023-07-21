@@ -1,0 +1,158 @@
+﻿@using EntityLayer.Concrete
+@model List<Blog>
+
+@{
+    if (Model.Count() > 0)
+    {
+        ViewBag.Titles = Model.FirstOrDefault().BlogTitle;
+        ViewBag.Description = Model.FirstOrDefault().BlogContent.Substring(0, Model.FirstOrDefault().BlogContent.Substring(0, 70).LastIndexOf(" "));
+        ViewBag.Keywords = Model.FirstOrDefault().BlogKeyword;
+    }
+}
+
+@{
+    ViewData["Title"] = "BlogDetails";
+    Layout = "~/Views/Shared/_SiteLayout.cshtml";
+}
+
+@if (Model.Count > 0)
+{
+    <section class="section wb">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
+                    <div class="page-wrapper">
+                        @foreach (var item in Model)
+                        {
+                            <div class="blog-title-area">
+                                <span class="color-green"><a href="~/Blog/BlogCategoryGetList/@item.CategoryID/@Url.AdresDuzenle(item.Category.CategoryName)" title="">@item.Category.CategoryName</a></span>
+
+                                <h3>@item.BlogTitle</h3>
+
+                                <div class="blog-meta big-meta">
+                                    <small>@item.BlogCreateDate.ToString("dd-MMM-yyyy")</small>
+                                    <small style="color: #1874cd"><a href="~/Blog/WriterBlogGet/@item.AppUserId/@Url.AdresDuzenle(item.AppUser.UserName)" title=""><b>@item.AppUser.UserName</b></a></small>
+                                </div><!-- end meta -->
+
+                            </div><!-- end title -->
+
+                            <div class="single-post-media">
+                                <img src="@item.BlogIMGURL" alt="" class="img-fluid">
+                            </div><!-- end media -->
+
+                            <div class="blog-content">
+                                <div class="pp">
+                                    <center>
+                                        @Html.Raw(item.BlogContent)
+                                        <hr />
+                                        @Html.Raw(item.BlogContentSetupDetails)
+                                        @Html.Raw(item.BlogProgramingRequirement)
+                                        <hr />
+                                    </center>
+                                    <br />
+                                    @if (Model.FirstOrDefault().MediaFire != null || Model.FirstOrDefault().Turbobit != null || Model.FirstOrDefault().GoogleDriver != null || Model.FirstOrDefault().Mega != null || Model.FirstOrDefault().BitLY != null || Model.FirstOrDefault().Torrent != null)
+                                    {
+                                        <center>
+                                            <h4><b>İndirme Linkleri</b></h4>
+                                            <br />
+                                            <div style="margin-bottom:10px">
+                                                @if (Model.FirstOrDefault().MediaFire != null)
+                                                {
+                                                    <a href="@item.MediaFire"><img src="~/Images/Download/Mediafire.png" style="width:350px; height:50px" /></a>
+                                                }
+                                                @if (Model.FirstOrDefault().Turbobit != null)
+                                                {
+                                                    <a href="@item.Turbobit"><img src="~/Images/Download/Turbobit.png" style="width:350px; height:50px" /></a>
+                                                }
+                                                @if (Model.FirstOrDefault().GoogleDriver != null)
+                                                {
+                                                    <a href="@item.GoogleDriver"><img src="~/Images/Download/GoogleDrive.png" style="width:350px; height:50px" /></a>
+                                                }
+                                                @if (Model.FirstOrDefault().Mega != null)
+                                                {
+                                                    <a href="@item.Mega"><img src="~/Images/Download/Mega.png" style="width:350px; height:50px" /></a>
+                                                }
+                                                @if (Model.FirstOrDefault().Torrent != null)
+                                                {
+                                                    <a href="@item.Torrent"><img src="~/Images/Download/utorrent.png" style="width:350px;height:50px;" /></a>
+                                                }
+                                            </div>
+                                            @if (Model.FirstOrDefault().BitLY != null)
+                                            {
+                                                <h6>Bize Destek Olmak İstermisin ? Reklamlı Linkimizden İndirme Yaparak Destek Olabilirsin.</h6>
+                                                <a href="@item.BitLY"><img src="~/Images/Download/Bitly.png" style="width:350px; height:50px" /></a>
+                                            }
+                                        </center>
+                                    }
+                                </div><!-- end pp -->
+                            </div><!-- end content -->
+                        }
+                        <br />
+                        <hr />
+
+                        <hr class="invis1">
+
+                        <div class="custombox authorbox clearfix">
+                            <h4 class="small-title">Yazar</h4>
+                            <div class="row">
+                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                                    <img src="@Model.FirstOrDefault().AppUser.IMGURL" style="height:100px" alt="" class="img-fluid rounded-circle">
+                                </div><!-- end col -->
+
+                                <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+                                    <h4><a href="~/Blog/WriterBlogGet/@Model.FirstOrDefault().AppUserId/@Url.AdresDuzenle(Model.FirstOrDefault().AppUser.UserName)">@Model.FirstOrDefault().AppUser.UserName</a></h4>
+                                    <p>@Model.FirstOrDefault().AppUser.About</p>
+
+                                    <div class="topsocial">
+                                        <a href="@Model.FirstOrDefault().AppUser.Facebook" data-toggle="tooltip" data-placement="bottom" title="Facebook"><i class="fa fa-facebook"></i></a>
+                                        <a href="@Model.FirstOrDefault().AppUser.Youtube" data-toggle="tooltip" data-placement="bottom" title="Youtube"><i class="fa fa-youtube"></i></a>
+                                        <a href="@Model.FirstOrDefault().AppUser.Instagram" data-toggle="tooltip" data-placement="bottom" title="Instagram"><i class="fa fa-instagram"></i></a>
+                                    </div><!-- end social -->
+
+                                </div><!-- end col -->
+                            </div><!-- end row -->
+                        </div><!-- end author-box -->
+
+                        <hr class="invis1">
+
+                        @await Component.InvokeAsync("CommentList", new { ID = ViewBag.X })
+                        @await Html.PartialAsync("CommentAdded", new { ViewBag.X })
+
+                    </div><!-- end page-wrapper -->
+                </div><!-- end col -->
+
+                <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
+                    <div class="sidebar">
+                        @await Component.InvokeAsync("LeftSearchLayout")
+                        @await Component.InvokeAsync("LeftCategoryLayout")
+                        @await Component.InvokeAsync("LeftMaximumPuan3Subject")
+                        @await Component.InvokeAsync("LeftSocialMedia")
+                        @await Component.InvokeAsync("LeftReklam")
+                    </div><!-- end sidebar -->
+                </div><!-- end col -->
+            </div><!-- end row -->
+        </div><!-- end container -->
+    </section>
+}
+else
+{
+    <section class="section wb">
+        <div class="container">
+            <h4 style="color: #1874cd"><b>ARADIĞINIZ BLOG BULUNAMADI...</b></h4>
+            <br /><br /><br />
+            <div class="row">
+                <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
+                </div>
+                <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
+                    <div class="sidebar">
+                        @await Component.InvokeAsync("LeftSearchLayout")
+                        @await Component.InvokeAsync("LeftCategoryLayout")
+                        @await Component.InvokeAsync("LeftMaximumPuan3Subject")
+                        @await Component.InvokeAsync("LeftSocialMedia")
+                        @await Component.InvokeAsync("LeftReklam")
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+}

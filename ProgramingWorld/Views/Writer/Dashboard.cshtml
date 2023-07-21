@@ -1,0 +1,65 @@
+﻿@using EntityLayer.Concrete
+@model List<AppUser> 
+
+@{
+    ViewData["Title"] = "Dashboard";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+
+<div class="content-wrapper">
+    <div class="page-header">
+        <h3 class="page-title">
+            <span class="page-title-icon bg-info text-white mr-2">
+                <i class="mdi mdi-home"></i>
+            </span> Dashboard
+        </h3>
+        <nav aria-label="breadcrumb">
+            <ul class="breadcrumb">
+                <li class="breadcrumb-item active" aria-current="page">
+                    <span></span>@Model.FirstOrDefault().UserName <b style="color:#1874cd">&</b> @Model.FirstOrDefault().NameSurname<i class="mdi mdi-alert-circle-outline icon-sm text-info align-middle"></i>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <!--İstatislik(DASHBOARD)-->
+    <div class="row">
+        <div class="col-md-4 stretch-card grid-margin">
+            <div class="card bg-info card-img-holder text-white">
+                <div class="card-body">
+                    <img src="~/writer/assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
+                    <h4 class="font-weight-normal mb-3">
+                        Toplam Blog Sayısı <i class="mdi mdi mdi-apps mdi-24px float-right"></i>
+                    </h4>
+                    <h2 class="mb-5">@ViewBag.ToplamBlog</h2>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 stretch-card grid-margin">
+            <div class="card bg-primary card-img-holder text-white">
+                <div class="card-body">
+                    <img src="~/writer/assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
+                    <h4 class="font-weight-normal mb-3">
+                        Sizin Oluşturduğunuz Blog Sayısı <i class="mdi mdi-layers mdi-24px float-right"></i>
+                    </h4>
+                    <h2 class="mb-5">@ViewBag.KisiBlog</h2>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 stretch-card grid-margin">
+            <div class="card bg-success card-img-holder text-white">
+                <div class="card-body">
+                    <img src="~/writer/assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
+                    <h4 class="font-weight-normal mb-3">
+                        Blog'larınıza Yapılan Toplam Yorum <i class="mdi mdi mdi-email mdi-24px float-right"></i>
+                    </h4>
+                    <h2 class="mb-5">@ViewBag.ToplamYorum</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Son Eklenen Bloglar-->
+    @await Component.InvokeAsync("WriterEndBlog")
+    <!--Yazar About-->
+    @await Component.InvokeAsync("WriterAbout")
+</div>
+

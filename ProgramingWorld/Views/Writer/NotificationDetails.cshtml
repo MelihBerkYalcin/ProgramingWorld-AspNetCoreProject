@@ -1,0 +1,37 @@
+﻿@model EntityLayer.Concrete.Notification
+
+@{
+    ViewData["Title"] = "NotificationDetails";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+
+<div class="content-wrapper">
+    <div class="page-header">
+        <h3 class="page-title">
+            <span class="page-title-icon bg-info text-white mr-2">
+                <i class="mdi mdi-bell"></i>
+            </span> Bildirim Mesajı
+        </h3>
+    </div>
+    <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <form class="forms-sample">
+                    <div class="form-group">
+                        <label for="exampleInputName1">Bildirmin Başlığı</label>
+                        @Html.TextBoxFor(I => I.NotificationTitle, new { @class = "form-control", disabled="true" })
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail3">Bildirim Tarihi</label>
+                        @Html.TextBoxFor(I => I.NotificationDate, new { @class = "form-control", disabled = "true" })
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleTextarea1">Bildirim Açıklaması</label>
+                        @Html.TextAreaFor(I => I.NotificationDetails, 20, 0, new { @class = "form-control", disabled = "true" })
+                    </div>
+                    <a href="~/Writer/Dashboard" class="btn-sm btn-info">Okudum</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

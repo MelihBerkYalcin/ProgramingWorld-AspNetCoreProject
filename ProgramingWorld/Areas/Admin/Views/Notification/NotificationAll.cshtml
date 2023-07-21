@@ -1,0 +1,47 @@
+﻿@model List<EntityLayer.Concrete.Notification>
+
+@{
+    ViewData["Title"] = "NotificationAll";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox ">
+                <div class="ibox-title">
+                    <h5>Blog</h5>
+                </div>
+                <div class="ibox-content">
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Bildirim Başlığı</th>
+                                <th>Bildirim Sembolü</th>
+                                <th>Bildirim Rengi</th>
+                                <th>Sil</th>
+                                <th>Düzenle</th>
+                                <th>Detay</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr style="text-align:initial">
+                                    <td>@item.NotificationTitle</td>
+                                    <td>@item.NotificationTitleSymbol</td>
+                                    <td>@item.NotificationColor</td>
+                                    <td><a href="~/Admin/Notification/NotificationDeleted/@item.NotificationID" class="btn btn-danger">Sil</a></td>
+                                    <td><a href="~/Admin/Notification/NotificationUpdated/@item.NotificationID" class="btn btn-warning">Düzenle</a></td>
+                                    <td><a href="~/Admin/Notification/NotificationDetails/@item.NotificationID" class="btn btn-info">Detay</a></td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,52 @@
+﻿@using EntityLayer.Concrete
+@model List<Message>
+
+@{
+    ViewData["Title"] = "WriterInBox";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+
+<div class="content-wrapper">
+    <div class="page-header">
+        <h3 class="page-title">
+            <span class="page-title-icon bg-info text-white mr-2">
+                <i class="mdi mdi-comment"></i>
+            </span> Gönderilen Mesajlar
+        </h3>
+    </div>
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <div style="margin-bottom:20px">
+                    <a href="~/Writer/WriterMessageAdded" class="btn-sm btn-info" style="margin-left:5px">+ Ekle</a>
+                    @*<a href="~/Writer/WriterMessageDelete/@Model.FirstOrDefault().MessageID" class="btn-sm btn-info">- Sil</a>*@
+                </div>
+                <div class="mail-box">
+                    <table class="table table-hover table-mail">
+                        <tr>
+                            <th class="check-mail">#</th>
+                            <th class="mail-ontact">Gönderdiğiniz Kullanıcı Adı</th>
+                            <th class="mail-subject">Mesaj Konusu</th>
+                            <th class=""><i class="fa fa-paperclip"></i></th>
+                            <th class="text-right mail-date">Mesajın Tarihi Ve Saati</th>
+                        </tr>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr class="read">
+                                    <td class="check-mail">
+                                        <input type="checkbox" class="i-checks">
+                                    </td>
+                                    <td class="mail-ontact"><a href="~/Writer/MessageDetailss/@item.MessageID/@(Url.AdresDuzenle(item.Subject))">@item.ReceiverUser</a></td>
+                                    <td class="mail-subject"><a href="~/Writer/MessageDetailss/@item.MessageID/@(Url.AdresDuzenle(item.Subject))">@item.Subject</a></td>
+                                    <td class=""></td>
+                                    <td class="text-right mail-date">@item.MessageDate.ToShortDateString() | @item.MessageDate.ToShortTimeString()</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

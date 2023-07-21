@@ -1,0 +1,12 @@
+﻿@using EntityLayer.Concrete
+@model List<SubCategory>
+
+@if (Model.Count > 0)
+{
+    <div class="dropdown-menu" aria-labelledby="navbarDropdown3" style="position:absolute">
+        @foreach (var item in Model)
+        {
+            <a class="dropdown-item" href="~/Blog/BlogSubCategory/@item.SubCategoryID/@Url.AdresDuzenle(item.SubCategoryName)">@item.SubCategoryName</a>
+        }
+    </div>
+}

@@ -1,0 +1,82 @@
+﻿@model List<EntityLayer.Concrete.AppUser>
+
+@{
+    string Password = "";
+}
+
+@{
+    ViewData["Title"] = "Profile";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+
+<div class="content-wrapper">
+    <div class="page-header">
+        <h3 class="page-title">
+            <span class="page-title-icon bg-info text-white mr-2">
+                <i class="mdi mdi-account"></i>
+            </span> Profil
+        </h3>
+    </div>
+
+    <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <form class="forms-sample" asp-action="ProfileUpdate" asp-controller="Writer" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="exampleInputName1">İsminiz Soyisminiz :</label>
+                        <input type="text" class="form-control" asp-for="@Model.FirstOrDefault().NameSurname" id="exampleInputName1" placeholder="İsminiz Soyisminiz" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputName1">Kullanıcı Adınız :</label>
+                        <input type="text" class="form-control" asp-for="@Model.FirstOrDefault().UserName" id="exampleInputName1" placeholder="Kullanıcı Adınız" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail3">E-Mail Adresiniz :</label>
+                        <input type="email" class="form-control" asp-for="@Model.FirstOrDefault().Email" id="exampleInputEmail3" placeholder="E-Mail Adresiniz" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleInputPassword4">Şifreniz :</label>
+                        <input type="password" class="form-control" asp-for="@(Password)" id="exampleInputPassword4" placeholder="Şifreniz" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleInputPassword4">Telefon Numaranız :</label>
+                        <input type="text" class="form-control" asp-for="@Model.FirstOrDefault().PhoneNumber" id="exampleInputPassword4" placeholder="Telefon Numaranız">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword4">Facebook Adresiniz :</label>
+                        <input type="text" class="form-control" asp-for="@Model.FirstOrDefault().Facebook" id="exampleInputPassword4" placeholder="Facebook Adresiniz">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword4">Instagram Adresiniz :</label>
+                        <input type="text" class="form-control" asp-for="@Model.FirstOrDefault().Instagram" id="exampleInputPassword4" placeholder="Instagram Adresiniz">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword4">Youtube Adresiniz :</label>
+                        <input type="text" class="form-control" asp-for="@Model.FirstOrDefault().Youtube" id="exampleInputPassword4" placeholder="Youtube Adresiniz">
+                    </div>
+                    <div class="form-group">
+                        <label>Profil Resminiz :</label><br />
+                        @if (Model.FirstOrDefault().IMGURL != null)
+                        {
+                            <input type="text" class="form-control" asp-for="@Model.FirstOrDefault().IMGURL" value="@Model.FirstOrDefault().IMGURL" /><br />
+                        }
+                        else
+                        {
+                            <input type="file" name="formFile" class="file-upload-info" value="formFile" style="width:100%" /><br />
+                        }
+                    <div class="form-group">
+                        <label for="exampleTextarea1">Profil Yazınız</label>
+                        <textarea class="form-control" asp-for="@Model.FirstOrDefault().About" id="exampleTextarea1" rows="4" required></textarea>
+                    </div>
+                        <button type="submit" class="btn btn-info mr-2">Güncelle</button>
+                        <a href="~/Writer/Profile" class="btn btn-light">İptal Et</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+

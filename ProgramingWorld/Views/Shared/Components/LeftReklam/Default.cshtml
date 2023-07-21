@@ -1,0 +1,12 @@
+﻿@using EntityLayer.Concrete
+@model List<Advert> 
+
+<!--Reklam Alanı-->
+<div class="widget">
+    <h2 class="widget-title">Reklam Alanı</h2>
+    <div class="banner-spot clearfix" style="width:310px; height:610px">
+        <div class="banner-img">
+            <img src="@Model.FirstOrDefault().AdvertURL" alt="" class="img-fluid" style="width:300px; height:600px">
+        </div><!-- end banner-img -->
+    </div><!-- end banner -->
+</div><!-- end widget -->

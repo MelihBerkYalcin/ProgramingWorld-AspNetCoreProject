@@ -1,0 +1,88 @@
+﻿@model EntityLayer.Concrete.Blog
+
+@{
+    ViewData["Title"] = "BlogAdded";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="ibox ">
+            <div class="ibox-title">
+                <h5>Blog Düzenle</h5>
+            </div>
+            <div class="ibox-content">
+                <form action="BlogAdded" method="post" enctype="multipart/form-data">
+                    <div class="form-group  row">
+                        <label class="col-sm-2 col-form-label">Blog Başlığı</label>
+                        <div class="col-sm-10">@Html.TextBoxFor(I => I.BlogTitle, new { @class = "form-control" })</div>
+                    </div>
+                    <div class="form-group  row">
+                        <label class="col-sm-2 col-form-label">Blog Anahtar Kelimeleri</label>
+                        <div class="col-sm-10">@Html.TextBoxFor(I => I.BlogKeyword, new { @class = "form-control" })</div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Blog Açıklaması</label>
+                        <div class="col-sm-10">@Html.TextAreaFor(I => I.BlogContent, 10, 3, new { @class = "form-control" })</div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Nasıl Yüklenir ?</label>
+                        <div class="col-sm-10">@Html.TextAreaFor(I => I.BlogContentSetupDetails, 10, 3, new { @class = "form-control" })</div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Sistematik Özellikler</label>
+                        <div class="col-sm-10">@Html.TextAreaFor(I => I.BlogProgramingRequirement, 10, 3, new { @class = "form-control" })</div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Blog Resmi</label>
+                        <div class="col-sm-10"><input type="file" name="formFile" class="file-upload-info" value="formFile" style="width:100%" /><br /></div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Blog Kategorisi</label>
+                        <div class="col-sm-10">@Html.DropDownListFor(I => I.CategoryID, (List<SelectListItem>)ViewBag.Liste, new { @class = "form-control" })</div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Blog Alt Kategorisi</label>
+                        <div class="col-sm-10">@Html.DropDownListFor(I => I.SubCategoryID, (List<SelectListItem>)ViewBag.ListeSubCategory, new { @class = "form-control" })</div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Blog Yazarı</label>
+                        <div class="col-sm-10">@Html.DropDownListFor(I => I.AppUserId, (List<SelectListItem>)ViewBag.ListeUser, new { @class = "form-control" })</div>
+                    </div>
+                    <hr />
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Blog Turbobit Linki</label>
+                        <div class="col-sm-10">@Html.TextBoxFor(I => I.Turbobit, new { @class = "form-control" })</div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Blog Mediafire Linki</label>
+                        <div class="col-sm-10">@Html.TextBoxFor(I => I.MediaFire, new { @class = "form-control" })</div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Blog GoogleDriver Linki</label>
+                        <div class="col-sm-10">@Html.TextBoxFor(I => I.GoogleDriver, new { @class = "form-control" })</div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Blog Mega Linki</label>
+                        <div class="col-sm-10">@Html.TextBoxFor(I => I.Mega, new { @class = "form-control" })</div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Blog BitLY Linki</label>
+                        <div class="col-sm-10">@Html.TextBoxFor(I => I.BitLY, new { @class = "form-control" })</div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Blog Torrent Linki</label>
+                        <div class="col-sm-10">@Html.TextBoxFor(I => I.Torrent, new { @class = "form-control" })</div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group row">
+                        <div class="col-sm-4 col-sm-offset-2">
+                            <a href="~/Admin/Blog/Blog" class="btn btn-white btn-sm" type="submit">İptal Et</a>
+                            <button class="btn btn-info btn-sm" type="submit">Oluştur</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

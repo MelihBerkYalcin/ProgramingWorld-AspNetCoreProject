@@ -1,0 +1,15 @@
+C:\Users\Mümtaz\source\repos\ProgramingWorld\EntityLayer\bin\Release\net5.0\EntityLayer.deps.json
+C:\Users\Mümtaz\source\repos\ProgramingWorld\EntityLayer\bin\Release\net5.0\EntityLayer.runtimeconfig.json
+C:\Users\Mümtaz\source\repos\ProgramingWorld\EntityLayer\bin\Release\net5.0\EntityLayer.runtimeconfig.dev.json
+C:\Users\Mümtaz\source\repos\ProgramingWorld\EntityLayer\bin\Release\net5.0\EntityLayer.dll
+C:\Users\Mümtaz\source\repos\ProgramingWorld\EntityLayer\bin\Release\net5.0\ref\EntityLayer.dll
+C:\Users\Mümtaz\source\repos\ProgramingWorld\EntityLayer\bin\Release\net5.0\EntityLayer.pdb
+C:\Users\Mümtaz\source\repos\ProgramingWorld\EntityLayer\obj\Release\net5.0\EntityLayer.csprojAssemblyReference.cache
+C:\Users\Mümtaz\source\repos\ProgramingWorld\EntityLayer\obj\Release\net5.0\EntityLayer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Mümtaz\source\repos\ProgramingWorld\EntityLayer\obj\Release\net5.0\EntityLayer.AssemblyInfoInputs.cache
+C:\Users\Mümtaz\source\repos\ProgramingWorld\EntityLayer\obj\Release\net5.0\EntityLayer.AssemblyInfo.cs
+C:\Users\Mümtaz\source\repos\ProgramingWorld\EntityLayer\obj\Release\net5.0\EntityLayer.csproj.CoreCompileInputs.cache
+C:\Users\Mümtaz\source\repos\ProgramingWorld\EntityLayer\obj\Release\net5.0\EntityLayer.dll
+C:\Users\Mümtaz\source\repos\ProgramingWorld\EntityLayer\obj\Release\net5.0\ref\EntityLayer.dll
+C:\Users\Mümtaz\source\repos\ProgramingWorld\EntityLayer\obj\Release\net5.0\EntityLayer.pdb
+C:\Users\Mümtaz\source\repos\ProgramingWorld\EntityLayer\obj\Release\net5.0\EntityLayer.genruntimeconfig.cache

@@ -1,0 +1,114 @@
+﻿@model EntityLayer.Concrete.Blog
+
+@{
+    ViewData["Title"] = "WriterBlogUpdate";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+
+<div class="content-wrapper">
+    <div class="page-header">
+        <h3 class="page-title">
+            <span class="page-title-icon bg-info text-white mr-2">
+                <i class="mdi mdi-checkerboard"></i>
+            </span> Bloglarım
+        </h3>
+    </div>
+    <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <form class="forms-sample" asp-action="WriterBlogUpdated" asp-controller="Writer" method="post" enctype="multipart/form-data">
+                    @Html.TextBoxFor(I => I.BlogID, new { @class = "form-control", hidden = "true" })
+                    <div class="form-group">
+                        <label for="exampleInputName1">Blog Adı :</label>
+                        <input type="text" class="form-control" asp-for="@Model.BlogTitle" id="exampleInputName1" placeholder="Blog Adı" required>
+                        <p style="font-size:xx-small">Örnek : Photoshop 2021 Premium Full Edition - Türkçe + Version; Gibi</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleInputName1">Blog Anahtar Kelimeleri :</label>
+                        <input type="text" class="form-control" asp-for="@Model.BlogKeyword" id="exampleInputName1" placeholder="Blog Anahtar Kelimeleri" required>
+                        <p style="font-size: xx-small">Örnek : Photoshop 2021,Photoshop,Photoshop Full,Photoshop Türkçe,Photoshop 1.1 Version; Gibi</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleInputName1">Blog Açıklaması :</label>
+                        <textarea asp-for="@Model.BlogContent" class="form-control" rows="6" cols="15" placeholder="Blog Açıklaması" required></textarea>
+                        <p style="font-size:xx-small">Örnek : Photoshop 2021 Adobe şirketi tarafından görsel oluşturma ve editleme programı olarak sunulmuştur...; Gibi</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleInputEmail3">Uygulama Nasıl Yüklenir :</label>
+                        <textarea asp-for="@Model.BlogContentSetupDetails" class="form-control" rows="6" cols="15" placeholder="Uygulama Nasıl Yüklenir"></textarea>
+                        <p style="font-size:xx-small">Örnek : Photoshop2021.Exe'yi Açın-Gelen Ekrandan Next'e Basın...; Gibi</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleInputPassword4">Uygulama Sistem Özellikleri :</label>
+                        <textarea asp-for="@Model.BlogProgramingRequirement" class="form-control" rows="6" cols="15" placeholder="Uygulama Sistem Özellikleri"></textarea>
+                        <p style="font-size:xx-small">Örnek : Windows 10 Uyumlu,3 Gb Alan,4 Gb Ram ...; Gibi</p>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword4">Blog Resmi :</label>
+                        @if (Model != null)
+                        {
+                            @Html.TextBoxFor(I => I.BlogIMGURL, new { @class = "form-control" })
+                            <p style="font-size:xx-small">Burayı temizleyip güncelle button'una basıp dosya yükleme alanı gelince resmi yükle.</p>
+
+                        }
+                        else
+                        {
+                            <input type="file" class="file-upload-info" name="formFile" style="width:100%" />
+                        }
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword4">Blog Kategori :</label>
+                        @Html.DropDownListFor(I => I.CategoryID, (List<SelectListItem>)ViewBag.List, new { @class = "form-control", required = "true" })
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword4">Blog Alt Kategorisi :</label>
+                        @Html.DropDownListFor(I => I.SubCategoryID, (List<SelectListItem>)ViewBag.ListSubCategory, new { @class = "form-control", required = "true" })
+                    </div>          
+                    <hr style="color:red" />
+                    <div class="form-group">
+                        <label for="exampleInputPassword4">MediaFire Linki :</label>
+                        <input type="text" class="form-control" asp-for="@Model.MediaFire" id="exampleInputName1" placeholder="MediaFire Linki">
+
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword4">Turbobit Linki :</label>
+                        <input type="text" class="form-control" asp-for="@Model.Turbobit" id="exampleInputName1" placeholder="Turbobit Linki">
+                        <p style="font-size:xx-small">Örnek : https://turbobit.com.tr/xxx; Gibi</p>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword4">Google Driver Linki :</label>
+                        <input type="text" class="form-control" asp-for="@Model.GoogleDriver" id="exampleInputName1" placeholder="GoogleDriver Linki">
+                        <p style="font-size:xx-small">Örnek : https://drive.google.com/drive/xxx; Gibi</p>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword4">Mega Linki :</label>
+                        <input type="text" class="form-control" asp-for="@Model.Mega" id="exampleInputName1" placeholder="Mega Linki">
+                        <p style="font-size:xx-small">Örnek : https://mega.io/xxx; Gibi</p>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword4">Bitly Linki :</label>
+                        <input type="text" class="form-control" asp-for="@Model.BitLY" id="exampleInputName1" placeholder="Bitly Linki">
+                        <p style="font-size:xx-small">Örnek : https://bitly.com/xxx; Gibi</p>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword4">Torrent Linki :</label>
+                        <input type="text" class="form-control" asp-for="@Model.Torrent" id="exampleInputName1" placeholder="Torrent Linki">
+
+                    </div>
+                    <div style="margin-top:40px">
+                        <button class="btn btn-info" style="width:100%">Güncelle</button>
+                        <a href="~/Writer/WriterGetBlogList/" class="btn btn-danger" style="width:100%">İptal Et</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

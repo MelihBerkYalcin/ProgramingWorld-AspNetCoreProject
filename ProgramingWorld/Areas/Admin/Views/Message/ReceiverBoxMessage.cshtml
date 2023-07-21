@@ -1,0 +1,76 @@
+﻿@model List<EntityLayer.Concrete.Message>
+
+@{
+    ViewData["Title"] = "ReceiverBoxMessage";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="wrapper wrapper-content">
+    <div class="row">
+        <div class="col-lg-3">
+            <div class="ibox ">
+                <div class="ibox-content mailbox-content">
+                    <div class="file-manager">
+                        <a class="btn btn-block btn-primary compose-mail" href="~/Admin/Message/MessageAdded/">Mesaj Gönder</a>
+                        <div class="space-25"></div>
+                        <h5>Menüler</h5>
+                        <ul class="folder-list m-b-md" style="padding: 0">
+                            <li><a href="~/Admin/Message/SenderBoxMessage/"> <i class="fa fa-inbox "></i> Gelen Kutusu <span class="label label-primary float-right">@ViewBag.SenderMessageCount</span> </a></li>
+                            <li><a href="~/Admin/Message/ReceiverBoxMessage/"> <i class="fa fa-envelope-o"></i> Giden Kutusu <span class="label label-warning float-right">@ViewBag.ReceiverMessageCount</span> </a></li>
+                            <li><a href="~/Admin/Message/WriterAllMessage/"> <i class="fa fa-certificate"></i> Yazarların Tüm Mesajları <span class="label label-success float-right">@ViewBag.AllMessage</span></a></li>
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-9 animated fadeInRight">
+            <div class="mail-box-header">
+
+                <form method="get" action="#" class="float-right mail-search">
+                    <div class="input-group">
+                        <input type="text" class="form-control form-control-sm" name="search" placeholder="Mesaj Ara...">
+                        <div class="input-group-btn">
+                            <button type="submit" class="btn btn-sm btn-primary">
+                                Ara
+                            </button>
+                        </div>
+                    </div>
+                </form>
+                <h2>
+                   Giden Kutusu (@ViewBag.ReceiverMessageCount)
+                </h2>
+                <div class="mail-tools tooltip-demo m-t-md">
+                    <div class="btn-group float-right">
+                        <button class="btn btn-white btn-sm"><i class="fa fa-arrow-left"></i></button>
+                        <button class="btn btn-white btn-sm"><i class="fa fa-arrow-right"></i></button>
+
+                    </div>
+                    <button class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="left" title="Refresh inbox"><i class="fa fa-refresh"></i> Yenile</button>
+                    <button class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="top" title="Mark as important"><i class="fa fa-exclamation"></i> </button>
+                    <button class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="top" title="Move to trash"><i class="fa fa-trash-o"></i> </button>
+
+                </div>
+            </div>
+            <div class="mail-box">
+
+                <table class="table table-hover table-mail">
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr class="read">
+                                <td class="check-mail">
+                                    <input type="checkbox" class="i-checks">
+                                </td>
+                                <td class="mail-ontact"><a href="~/Admin/Message/ReceiverMessageDetails/@item.MessageID">@item.ReceiverUser.UserName</a></td>
+                                <td class="mail-subject"><a href="~/Admin/Message/ReceiverMessageDetails/@item.MessageID">@item.MessageDetails</a></td>
+                                <td class=""></td>
+                                <td class="text-right mail-date">Tarih : @item.MessageDate.ToShortDateString() | Saat : @item.MessageDate.ToShortTimeString()</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

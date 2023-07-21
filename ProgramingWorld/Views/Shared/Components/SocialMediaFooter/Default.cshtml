@@ -1,0 +1,6 @@
+﻿@using EntityLayer.Concrete
+@model List<SocialMedia> 
+
+<a href="@Model.FirstOrDefault().Facebook" data-toggle="tooltip" data-placement="bottom" title="Facebook"><i class="fa fa-facebook"></i></a>
+<a href="@Model.FirstOrDefault().Youtube" data-toggle="tooltip" data-placement="bottom" title="Youtube"><i class="fa fa-youtube"></i></a>
+<a href="@Model.FirstOrDefault().Instagram" data-toggle="tooltip" data-placement="bottom" title="Instagram"><i class="fa fa-instagram"></i></a>

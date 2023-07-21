@@ -1,0 +1,129 @@
+﻿
+@{
+    ViewData["Title"] = "_SiteLayout";
+}
+
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <!-- Basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Site Metas -->
+    @if (@ViewBag.Titles != null)
+    {
+        <title>@ViewBag.Titles - FullProgramDunyasi.Com </title>
+    }
+    else
+    {
+        <title>FullProgramDunyasi.Com | Program-Oyun-Isletim Sistemi- İNDİR</title>
+    }
+
+    @if (ViewBag.Description != null)
+    {
+        <meta name="description" content="@ViewBag.Description">
+    }
+    else
+    {
+        <meta name="description" content="FullProgramDunyasi Tam İndir Full Program indir İşletim Sistemi İsletim Sistemi indir Oyun indir Full Oyun indir Android Uygulama indir Android Oyun indir Apk İndir">
+    }
+
+    @if (ViewBag.Keywords != null)
+    {
+        <meta name="keywords" content="@ViewBag.Keywords" />
+    }
+    else
+    {
+        <meta name="keywords" content="FullProgramDunyasi,Program,Program İndir,Full Program İndir,Tam Program İndir,Tam İndir,İşletim Sistemi,İşletim Sistemi İndir,İşletim Sistemi Güncel,İşletim Sistemi Güncelleme İndir,Oyun İndir,Full Oyun,Full Oyun İndir,Tam Oyun İndir,Torrent Program,Torrent Program İndir,Torrent Full Program İndir,Torrent Oyun,Torrent Oyun İndir,Apk Oyun,Apk Program,Apk İndir,Android Oyun,Android Oyun İndir,Apk Program İndir,Apk Oyun İndir,Full Apk İndir,eta v7 full indir,cyberlink powerdirector 17 full indir" />
+    }
+    <meta name="author" content="BladeBey">
+
+    <!-- Site Icons -->
+    <link rel="shortcut icon" href="~/forest-time/images/favicon.png" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="~/forest-time/images/apple-touch-icon.png">
+     
+    <!-- Design fonts --> 
+    <link href="https://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet">
+
+    <!-- Bootstrap core CSS -->
+    <link href="~/forest-time/css/bootstrap.css" rel="stylesheet">
+
+    <!-- FontAwesome Icons core CSS -->
+    <link href="~/forest-time/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="~/forest-time/style.css" rel="stylesheet">
+
+    <!-- Responsive styles for this template -->
+    <link href="~/forest-time/css/responsive.css" rel="stylesheet">
+
+    <!-- Colors for this template -->
+    <link href="~/forest-time/css/colors.css" rel="stylesheet">
+
+    <!-- Version Garden CSS for this template -->
+    <link href="~/forest-time/css/version/garden.css" rel="stylesheet">
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+
+    <!-- Puan Sistemi -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="~/Puan/style.css" rel="stylesheet" />
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <div id="wrapper">
+        <div class="collapse top-search" id="collapseExample">
+            <div class="card card-block">
+                <div class="newsletter-widget text-center">
+                    <form class="form-inline" asp-action="SearchBlog" asp-controller="Blog">
+                        <input type="text" class="form-control" name="p" placeholder="Sitede Ara...">
+                        <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
+                    </form>
+                </div><!-- end newsletter -->
+            </div>
+        </div><!-- end top-search -->
+
+        @await Component.InvokeAsync("SocialMediaLayout")
+
+        <div class="header-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="logo">
+                            <a href="~/Blog/Index/"><img src="~/Images/Logo.png" title="FullProgramDunyasi.Com | Program-Oyun-Isletim Sistemi- İNDİR" alt="FullProgramDunyasi.Com | Program-Oyun-Isletim Sistemi- İNDİR"></a>
+                        </div><!-- end log o -->
+                    </div>
+                </div><!-- end row -->
+            </div><!-- end header-logo -->
+        </div><!-- end header --><br /> 
+
+        @await Component.InvokeAsync("CategoryLayout")
+
+        @RenderBody()
+
+        @await Component.InvokeAsync("FooterLayout")
+
+        <div class="dmtop">Başa Dön</div>
+
+    </div><!-- end wrapper -->
+    <!-- Core JavaScript
+    ================================================== -->
+    <script src="~/forest-time/js/jquery.min.js"></script>
+    <script src="~/forest-time/js/tether.min.js"></script>
+    <script src="~/forest-time/js/bootstrap.min.js"></script>
+    <script src="~/forest-time/js/custom.js"></script>
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js'></script>
+    <script src="~/script.js"></script>
+
+</body>
+</html>

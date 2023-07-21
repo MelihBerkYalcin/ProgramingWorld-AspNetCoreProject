@@ -1,0 +1,17 @@
+﻿@model List<EntityLayer.Concrete.CommentReply>
+
+@if (Model.Count > 0)
+{
+    @foreach (var item in Model)
+    {
+        <div class="media">
+            <div class="media-body">
+                <p hidden>@item.CommentReplyID</p>
+                <h4 class="media-heading user_name">@item.CommentReplyUserName<small>@item.CommentReplyDate.ToString("dd-MMM-yyyy") | @item.CommentReplyDate.ToShortTimeString()</small></h4>
+                <p>@item.CommentReplyContent</p>
+                <hr />
+            </div>
+        </div>
+        <hr />
+    }
+}

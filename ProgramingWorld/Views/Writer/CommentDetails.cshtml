@@ -1,0 +1,56 @@
+﻿@using EntityLayer.Concrete
+@model List<Comment>
+
+@{
+    ViewData["Title"] = "CommentDetails";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+
+@if (Model.Count() > 0)
+{
+    <div class="content-wrapper">
+        <div class="page-header">
+            <h3 class="page-title">
+                <span class="page-title-icon bg-info text-white mr-2">
+                    <i class="mdi mdi-comment"></i>
+                </span> Mesaj Detayı
+            </h3>
+        </div>
+        @foreach (var item in Model)
+        {
+            <div class="col-12 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <form class="forms-sample">
+                            <input type="text" class="form-control" value="@item.CommentID" name="@item.CommentID" hidden />
+                            <div class="form-group">
+                                <label for="exampleInputName1">Yorum Yapanın Kullanıcı Adı</label>
+                                <input type="text" class="form-control" value="@item.CommentUserName" name="@item.CommentUserName" disabled />
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail3">Yorum Yaptığı Tarih</label>
+                                <input type="text" class="form-control" value="@item.CommentDate" name="@item.CommentUserName" disabled />
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleTextarea1">Mesajınız</label>
+                                <textarea class="form-control" cols="10" rows="20" disabled>@item.CommentContent</textarea>
+                            </div>
+                            <a href="~/Writer/Comment" class="btn-sm btn-info" color:white;">Okudum</a>
+                            <a href="~/Writer/CommentDeleted/@item.CommentID/@(Url.AdresDuzenle(item.CommentUserName))" class="btn-sm" style="background-color:red; color:white;">Sil</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}
+else
+{
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h3>Yorum Bulunamadı ...</h3>
+        </div>
+    </div>
+</div>
+}

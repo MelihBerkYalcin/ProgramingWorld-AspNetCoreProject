@@ -1,0 +1,49 @@
+﻿@model List<EntityLayer.Concrete.AppUser>
+
+@{
+    ViewData["Title"] = "WriterAll";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox ">
+                <div class="ibox-title">
+                    <h5>Blog</h5>
+                </div>
+                <div class="ibox-content">
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Kullanıcı Adı</th>
+                                <th>Gerçek Adı Soyadı</th>
+                                <th>EMail Adresi</th>
+                                <th>Telefon Numarası</th>
+                                <th>Sil</th>
+                                <th>Düzenle</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr style="text-align:initial">
+                                    <td><img src="@item.IMGURL" class="mr-2" alt="image" style="width:50px; height:50px; border-radius:50px;"></td>
+                                    <td>@item.UserName</td>
+                                    <td>@item.NameSurname</td>
+                                    <td>@item.Email</td>
+                                    <td>@item.PhoneNumber</td>
+                                    <td><a href="~/Admin/Writer/WriterDelete/@item.Id" class="btn btn-danger">Sil</a></td>
+                                    <td><a href="~/Admin/Writer/WriterUpdate/@item.Id" class="btn btn-warning">Düzenle</a></td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

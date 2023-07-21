@@ -1,0 +1,73 @@
+﻿@model List<EntityLayer.Concrete.AppUser>
+
+@{
+    string Password = "";
+}
+
+@{
+    ViewData["Title"] = "WriterUpdate";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="ibox ">
+            <div class="ibox-title">
+                <h5>Yazar Ekle</h5>
+            </div>
+            <div class="ibox-content">
+                <form action="WriterUpdate" method="post">
+                    <div class="form-group  row">
+                        <label class="col-sm-2 col-form-label">Adı Soyadı</label>
+                        <div class="col-sm-10">@Html.TextBoxFor(I => I.FirstOrDefault().NameSurname, new { @class = "form-control", placeholder = "Adı Soyadı Giriniz" })</div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Kullanıcı Adı</label>
+                        <div class="col-sm-10">@Html.TextBoxFor(I => I.FirstOrDefault().UserName, new { @class = "form-control", placeholder = "Kullancı Adı Giriniz" })</div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">EMail Adresi</label>
+                        <div class="col-sm-10">@Html.TextBoxFor(I => I.FirstOrDefault().Email, new { @class = "form-control", placeholder = "EMail Adresi Giriniz" })</div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Şifresi</label>
+                        <div class="col-sm-10"><input type="password" class="form-control" name="@(Password)" placeholder="Şifre Giriniz" /></div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Telefon Numarası</label>
+                        <div class="col-sm-10">@Html.TextBoxFor(I => I.FirstOrDefault().PhoneNumber, new { @class = "form-control", Type = "tel", placeholder = "Telefon Numarası Giriniz" })</div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Açıklaması</label>
+                        <div class="col-sm-10">@Html.TextAreaFor(I => I.FirstOrDefault().About, 10, 3, new { @class = "form-control", placeholder = "Açıklama Giriniz" })</div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Rolü</label>
+                        <div class="col-sm-10">@Html.DropDownListFor(I => I.FirstOrDefault().Id, (List<SelectListItem>)ViewBag.List, new { @class = "form-control" })</div>
+                    </div>
+                    <hr />
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Facebook Adresi</label>
+                        <div class="col-sm-10">@Html.TextBoxFor(I => I.FirstOrDefault().Facebook, new { @class = "form-control", placeholder = "Facebook Adresi Giriniz" })</div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Instagram Adresi</label>
+                        <div class="col-sm-10">@Html.TextBoxFor(I => I.FirstOrDefault().Instagram, new { @class = "form-control", placeholder = "Instagram Adresi Giriniz" })</div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Youtube Adresi</label>
+                        <div class="col-sm-10">@Html.TextBoxFor(I => I.FirstOrDefault().Youtube, new { @class = "form-control", placeholder = "Youtube Adresi Giriniz" })</div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group row">
+                        <div class="col-sm-4 col-sm-offset-2">
+                            <a href="~/Admin/Writer/WriterAll" class="btn btn-white btn-sm" type="submit">İptal Et</a>
+                            <button class="btn btn-warning btn-sm" type="submit">Güncelle</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

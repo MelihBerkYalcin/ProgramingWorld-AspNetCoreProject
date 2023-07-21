@@ -1,0 +1,25 @@
+﻿@using EntityLayer.Concrete
+@model List<Category>
+
+<nav class="navbar navbar-inverse navbar-toggleable-md">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#Forest Timemenu" aria-controls="Forest Timemenu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-md-center" id="Forest Timemenu">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link color-green-hover" href="~/Blog/Index/"><b>Ana Sayfa</b></a>
+            </li>
+            @foreach (var item in Model)
+            {
+                <li class="nav-item dropdown">
+                    <a class="nav-link color-green-hover dropdown-toggle" href="~/Blog/BlogCategoryGetList/@item.CategoryID/@Url.AdresDuzenle(item.CategoryName)" id="navbarDropdown3"><b>@item.CategoryName</b></a>
+                    @await Component.InvokeAsync("SubCategoryLayout", new { ID = item.CategoryID })
+                </li>
+            }
+            <li class="nav-item">
+                <a class="nav-link color-green-hover" href="~/Content/Index"><b>İletişim</b></a>
+            </li>
+        </ul>
+    </div>
+</nav>

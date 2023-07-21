@@ -1,0 +1,19 @@
+﻿@using EntityLayer.Concrete
+@model List<Category> 
+
+<!--Kategori Kısmı-->
+<div class="widget">
+    <h2 class="widget-title">Kategoriler</h2>
+    <div class="link-widget">
+        <ul>
+            <li><a href="~/Blog/Index/">AnaSayfa</a></li>
+            @foreach (var item in Model)
+            {
+                <li><a href="~/CategoryBlogGet/@item.CategoryID/@Url.AdresDuzenle(item.CategoryName)">@item.CategoryName</a></li>
+            }
+            <li><a href="~/Update/Index">Güncelleme Notları</a></li>
+            <li><a href="~/TelifHakki/Index">Telif Hakkı Bilgilendirme</a></li>
+            <li><a href="~/Content/Index">İletişim</a></li>
+        </ul>
+    </div><!-- end link-widget -->
+</div><!-- end widget -->

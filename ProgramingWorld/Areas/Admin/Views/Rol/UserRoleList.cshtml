@@ -1,0 +1,41 @@
+﻿@using EntityLayer.Concrete
+@model List<AppUser> 
+
+@{
+    ViewData["Title"] = "UserRoleList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox ">
+                <div class="ibox-title">
+                    <h5>Blog</h5>
+                </div>
+                <div class="ibox-content">
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Kullanıcı Adı</th>
+                                <th>Rol Ata</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr style="text-align:initial">
+                                    <td><img src="@item.IMGURL" class="mr-2" alt="image" style="width:50px; height:50px; border-radius:50px;"></td>
+                                    <td>@item.UserName</td>
+                                    <td><a href="~/Admin/Rol/AssignRole/@item.Id" class="btn btn-warning">Rol Ata</a></td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

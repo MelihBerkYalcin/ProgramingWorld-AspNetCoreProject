@@ -1,0 +1,21 @@
+﻿@using EntityLayer.Concrete
+@model List<Blog> 
+
+<!--En Çok Puan Alan 3 Konu-->
+<div class="widget">
+    <h2 class="widget-title">En Çok Yorum Yapılan Yeni Bloglar</h2>
+    <div class="blog-list-widget">
+        <div class="list-group">
+            @foreach (var item in Model.Take(3))
+            {
+                <a href="~/Blog/BlogDetails/@item.BlogID/@Url.AdresDuzenle(item.BlogTitle)" class="list-group-item list-group-item-action flex-column align-items-start">
+                    <div class="w-100 justify-content-between">
+                        <img src="@item.BlogIMGURL" alt="" class="img-fluid float-left">
+                        <h5 class="mb-1">@item.BlogTitle</h5>
+                        <small>@item.BlogCreateDate.ToString("dd-MMM-yyyy")</small>
+                    </div>
+                </a>
+            }
+        </div>
+    </div><!-- end blog-list -->
+</div>

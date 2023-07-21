@@ -1,0 +1,106 @@
+﻿@model List<EntityLayer.Concrete.AppUser>
+
+<nav class="navbar-default navbar-static-side" role="navigation">
+    <div class="sidebar-collapse">
+        <ul class="nav metismenu" id="side-menu">
+            <li class="nav-header">
+                <div class="dropdown profile-element">
+                    <img alt="image" class="rounded-circle" src="@Model.FirstOrDefault().IMGURL" style="width:50px;height:50px;" />
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        <span class="block m-t-xs font-bold">@Model.FirstOrDefault().UserName</span>
+                        <span class="text-muted text-xs block">Hoşgeldiniz<b class="caret"></b></span>
+                    </a>
+                    <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                        <li><a class="dropdown-item" href="~/Writer/LogOut">Çıkış</a></li>
+                    </ul>
+                </div>
+                <div class="logo-element">
+                    FPD
+                </div>
+            </li>
+            <li>
+                <a href="~/Admin/Dashboard/Index/"><i class="fa fa-line-chart"></i> <span class="nav-label">Dashboard</span>  </a>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-envelope"></i> <span class="nav-label">Mesajlar</span><span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level collapse">
+                    <li><a href="~/Admin/Message/SenderBoxMessage/">Gelen Mesaj</a></li>
+                    <li><a href="~/Admin/Message/ReceiverBoxMessage/">Giden Mesaj</a></li>
+                    <li><a href="~/Admin/Message/WriterAllMessage/">Yazarların Tüm Mesajları</a></li>
+                    <li><a href="~/Admin/Message/MessageAdded/">Mesaj Gönder</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-bars"></i> <span class="nav-label">Kategoriler</span><span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level collapse">
+                    <li><a href="~/Admin/Category/CategoryList/">Tüm Kategoriler</a></li>
+                    <li><a href="~/Admin/Category/CategoryAdded/">Kategori Ekle</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">Bloglar</span><span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level collapse">
+                    <li><a href="~/Admin/Blog/Blog/">Tüm Bloglar</a></li>
+                    <li><a href="~/Admin/Blog/BlogAdded/">Blog Ekle</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-ellipsis-h"></i> <span class="nav-label">Alt Kategoriler</span><span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level collapse">
+                    <li><a href="~/Admin/SubCategory/SubCategoryList/">Alt Kategori Listesi</a></li>
+                    <li><a href="~/Admin/SubCategory/SubCategoryAdded/">Alt Kategori Ekle</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-group"></i> <span class="nav-label">Yazarlar</span><span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level collapse">
+                    <li><a href="~/Admin/Writer/WriterAll/">Tüm Yazarlar</a></li>
+                    <li><a href="~/Admin/Writer/WriterAdd/">Yazar Ekle</a></li>
+                    <li><a href="~/Admin/Rol/UserRoleList/">Yazar Rolleri</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-th-list"></i> <span class="nav-label">Güncelleme Notları</span><span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level collapse">
+                    <li><a href="~/Admin/Updated/UpdatedList/">Güncellemeleri Listele</a></li>
+                    <li><a href="~/Admin/Updated/UpdatedListAdded/">Güncelleme Ekle</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-bell"></i> <span class="nav-label">Bildirimler</span><span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level collapse">
+                    <li><a href="~/Admin/Notification/NotificationAll/">Tüm Bildirimler</a></li>
+                    <li><a href="~/Admin/Notification/NotificationAdded/">Bildirim Gönder</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-comments"></i> <span class="nav-label">Yorumlar</span><span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level collapse">
+                    <li><a href="~/Admin/Comment/CommentBlog/">Bloglara Ait Yorumlar</a></li>
+                    <li><a href="~/Admin/Comment/CommentAll/">Tüm Yorumlar</a></li>
+                    <li><a href="~/Admin/Comment/CommentAdded/">Yorum Ekle</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-diamond"></i> <span class="nav-label">Roller</span><span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level collapse">
+                    <li><a href="~/Admin/Rol/RoleAll/">Tüm Roller</a></li>
+                    <li><a href="~/Admin/Rol/RoleAdded/">Rol Ekle</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#" style="color:red"><i class="fa fa-wechat"></i> <span class="nav-label">Canlı Sohbet [KAPALI]</span></a>
+            </li>
+            <li>
+                <a href="~/Admin/Contact/ContactAll/"><i class="fa fa-link"></i> <span class="nav-label">İletişim</span></a>
+            </li>
+            <li>
+                <a href="#" style="color:red"><i class="fa fa-folder"></i> <span class="nav-label">Dosyalar [KAPALI]</span></a>
+            </li>
+            <li>
+                <a href="~/Writer/LogOut/"><i class="fa fa-sign-in"></i> <span class="nav-label">Çıkış Yap</span></a>
+            </li>
+        </ul>
+
+    </div>
+</nav>

@@ -1,0 +1,24 @@
+﻿@model UserSignUpViewModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <form asp-action="Registry" asp-controller="RegisterUser" method="post">
+        @Html.TextBoxFor(I => I.NameSurname)
+        @Html.TextBoxFor(I => I.UserName)
+        @Html.TextBoxFor(I => I.EMail)
+        @Html.TextBoxFor(I => I.Password)
+        @Html.TextBoxFor(I => I.ConfirmPassword)
+        <button>Kayıt Ol</button>
+    </form>
+</body>
+</html>
